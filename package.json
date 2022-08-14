@@ -1,0 +1,12 @@
+{
+  "name": "clarly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jong-hui/clarly.git",
+  "author": "jong-hui cheon <webd200@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "typescript": "^4.7.4"
+  }
+}
