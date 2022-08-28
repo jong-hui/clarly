@@ -1,4 +1,4 @@
-export type TokenType = 'String'
+export type TokenType = 'openTag' | 'closeTag'
 export type TokenParam = any
 
 export interface Token {
