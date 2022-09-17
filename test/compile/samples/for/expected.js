@@ -1,3 +1,4 @@
+import Clary from '@clarly/core'
 import { props } from '@clarly/internal'
 
 const ItemList = Clary.main((render) => {

@@ -1,4 +1,4 @@
-import { reactive } from '@clarly/core'
+import Clary, { reactive } from '@clarly/core'
 
 const Counter = Clary.main((render) => {
   const count = reactive(1)

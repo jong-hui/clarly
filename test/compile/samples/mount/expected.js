@@ -1,5 +1,5 @@
+import Clary, { reactive } from '@clarly/core'
 import { mountEffect } from '@clarly/internal'
-import { reactive } from '@clarly/core'
 
 const ServiceStatus = Clary.main((render) => {
   const status = reactive(null)
@@ -8,13 +8,13 @@ const ServiceStatus = Clary.main((render) => {
     const fetchStatus = async () => {
       try {
         await axios.get('/api/status')
-        
+
         status = 'OK'
       } catch {
         status = 'NO'
       }
     }
-  
+
     fetchStatus()
   })
 

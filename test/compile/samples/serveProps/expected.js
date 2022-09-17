@@ -1,3 +1,4 @@
+import Clary from '@clarly/core'
 import Items from './Items'
 
 const App = Clary.main((render) => {
