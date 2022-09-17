@@ -1,0 +1,6 @@
+<script>
+  const title = "IT's title"
+</script>
+<component name="Title">
+  <h2>{title}</h2>
+</component>

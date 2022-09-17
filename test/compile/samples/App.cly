@@ -1,4 +1,0 @@
-<script>
-  const title = "IT's title"
-</script>
-<h2>{title}</h2>

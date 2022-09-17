@@ -1,0 +1,17 @@
+<script>
+  import { reactive } from '@clarly/core'
+
+  const count = reactive(1)
+
+  const increment = () => {
+    count = count + 1
+  }
+
+  <effect use={{count}}>
+    document.title = `count = ${count}`
+  </effect>
+</script>
+<component name="Counter">
+  <h2>count = {count}</h2>  
+  <button onClick={increment}>Up</button>
+<component>

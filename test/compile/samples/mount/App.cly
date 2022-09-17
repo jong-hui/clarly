@@ -1,0 +1,22 @@
+<script>
+  import { reactive } from '@clarly/core'
+
+  const status = reactive(null)
+
+  <mount>
+    const fetchStatus = async () => {
+      try {
+        await axios.get('/api/status')
+        
+        status = 'OK'
+      } catch {
+        status = 'NO'
+      }
+    }
+
+    fetchStatus()
+  </mount>
+</script>
+<component name="ServiceStatus">
+  <h2>status is {status}</h2>
+<component>

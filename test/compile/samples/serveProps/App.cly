@@ -1,0 +1,13 @@
+<script>
+  import Items from './Items'
+  
+  const items = [
+    'test',
+    'test2'
+  ]
+</script>
+<component name="App">
+  <Items
+    items={items}
+  />
+</component>

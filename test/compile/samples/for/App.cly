@@ -1,0 +1,10 @@
+<script>
+  const { items } = props()
+</script>
+<component name="ItemList">
+  <ul>
+    {items.map(item => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</component>
