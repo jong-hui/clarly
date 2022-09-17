@@ -1,7 +1,7 @@
 import Clary, { reactive } from '@clarly/core'
 import { mountEffect } from '@clarly/internal'
 
-const ServiceStatus = Clary.main((render) => {
+const ServiceStatus = Clary.main('ServiceStatus', (render) => {
   const status = reactive(null)
 
   mountEffect(() => {

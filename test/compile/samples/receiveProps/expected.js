@@ -1,7 +1,7 @@
 import Clary from '@clarly/core'
 import { props } from '@clarly/internal'
 
-const Title = Clary.main((render) => {
+const Title = Clary.main('Title', (render) => {
   const title = props()
 
   render(Clary.DOM.createElement('h2', {

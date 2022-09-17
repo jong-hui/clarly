@@ -1,7 +1,7 @@
 import Clary from '@clarly/core'
 import { props } from '@clarly/internal'
 
-const ItemList = Clary.main((render) => {
+const ItemList = Clary.main('ItemList', (render) => {
   const { items } = props()
 
   render(Clary.DOM.createElement('ul', {

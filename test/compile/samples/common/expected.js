@@ -1,6 +1,6 @@
 import Clary from '@clary/core'
 
-const Title = Clary.main((render) => {
+const Title = Clary.main('Title', (render) => {
   const title = "IT's title"
 
   render(Clary.DOM.createElement('h2', {

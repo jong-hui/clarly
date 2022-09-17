@@ -1,7 +1,7 @@
 import Clary, { reactive } from '@clarly/core'
 import { effect } from '@clarly/internal'
 
-const Counter = Clary.main((render) => {
+const Counter = Clary.main('Counter', (render) => {
   const count = reactive(1)
 
   const increment = () => {
