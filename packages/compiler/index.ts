@@ -4,7 +4,7 @@ import { CompilerOptions } from "./interfaces";
 
 export class Compiler {
   tokens: Token[]
-  
+
   constructor(source: string, options: CompilerOptions) {
     this.tokens = tokenizer(source)
   }
