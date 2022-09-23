@@ -12,6 +12,6 @@ export class Clary {
   }
 
   mount() {
-
+    this.component.mount()
   }
 }

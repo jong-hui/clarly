@@ -12,7 +12,7 @@ const render = (containerNode: HTMLElement, component: ClaryComponent) => {
 }
 
 const _Clary = {
-  main: createClaryComponent,
+  createComponent: createClaryComponent,
   render
 }
 

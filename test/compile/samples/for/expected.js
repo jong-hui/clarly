@@ -1,14 +1,14 @@
 import Clary from '@clarly/core'
 import { props } from '@clarly/internal'
 
-const ItemList = Clary.main('ItemList', (render) => {
+const ItemList = Clary.createComponent('ItemList', (render) => {
   const { items } = props()
 
-  render(Clary.DOM.createElement('ul', {
-    children: Clary.DOM.createList(
+  render(Clary.createElement('ul', {
+    children: Clary.createList(
       items.map(item => (
-        Clary.DOM.createElement('li', {
-          textNode: Clary.DOM.createTextNode(item)
+        Clary.createElement('li', {
+          textNode: Clary.createTextNode(item)
         })
       ))
     )

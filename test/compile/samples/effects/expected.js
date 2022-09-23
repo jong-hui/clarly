@@ -1,18 +1,18 @@
 import Clary, { reactive } from '@clarly/core'
 
-const Counter = Clary.main('Counter', (render) => {
+const Counter = Clary.createComponent('Counter', (render) => {
   const count = reactive(1)
 
   const increment = () => {
     count = count + 1
   }
 
-  render(Clary.DOM.createFragment([
-    Clary.DOM.createElement('h2', {
-      textNode: Clary.DOM.createTextNode(`count = ${count}`)
+  render(Clary.createFragment([
+    Clary.createElement('h2', {
+      textNode: Clary.createTextNode(`count = ${count}`)
     }),
-    Clary.DOM.createElement('button', {
-      textNode: Clary.DOM.createTextNode(`Up`),
+    Clary.createElement('button', {
+      textNode: Clary.createTextNode(`Up`),
       onClick: increment
     })
   ]))

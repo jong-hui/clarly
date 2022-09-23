@@ -1,7 +1,7 @@
 import Clary, { reactive } from '@clarly/core'
 import { mountEffect } from '@clarly/internal'
 
-const ServiceStatus = Clary.main('ServiceStatus', (render) => {
+const ServiceStatus = Clary.createComponent('ServiceStatus', (render) => {
   const status = reactive(null)
 
   mountEffect(() => {
@@ -18,8 +18,8 @@ const ServiceStatus = Clary.main('ServiceStatus', (render) => {
     fetchStatus()
   })
 
-  render(Clary.DOM.createElement('h2', {
-    textNode: Clary.DOM.createTextNode(`status is ${status}`)
+  render(Clary.createElement('h2', {
+    textNode: Clary.createTextNode(`status is ${status}`)
   }))
 })
 
