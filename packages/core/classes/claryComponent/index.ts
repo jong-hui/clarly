@@ -16,7 +16,6 @@ export class ClaryComponent {
   }
 
   render(tree: ClaryElement) {
-    console.log(tree)
     this.element = tree
   }
 }

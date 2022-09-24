@@ -1,39 +1,35 @@
-import { get, keys } from "lodash"
+import { get, keys } from "lodash-es"
 import { ClaryElement } from "../core/interfaces"
-import { ElementProps } from "./interfaces"
-
-// const isTextNode = (possibleTextNode: unknown): possibleTextNode is Text => {
-//   return get(possibleTextNode, 'nodeType') ?? -1 === Node.TEXT_NODE
-// }
-
-// const createElement = (tag: string, props?: ElementProps) => {
-//   const element = document.createElement(tag)
-
-//   const { children, textNode, ...restProps } = props ?? {}
-
-//   if (textNode && isTextNode(textNode)) {
-//     element.appendChild(textNode)
-//   } else if (children) {
-//     element.appendChild(children)
-//   }
-
-//   keys(restProps).map(propKey => {
-//     const propValue = String(get(restProps, propKey) ?? '')
-
-//     element.setAttribute(propKey, propValue)
-//   })
-
-//   return element
-// }
-
-// const createTextNode = (text?: string) => {
-//   const textNode = document.createTextNode(text ?? '')
-
-//   return textNode
-// }
+import { isComponentElement, isNativeElement } from "../core/utils/element"
 
 const render = (rootElement: HTMLElement, claryElement: ClaryElement) => {
-  console.log(claryElement)
+  if (isNativeElement(claryElement.type)) {
+    const element = document.createElement(claryElement.type)
+
+    const { children, ...restProps } = claryElement.props ?? {}
+
+    if (typeof children === 'string') {
+      element.appendChild(document.createTextNode(children))
+    } else if (Array.isArray(children)) {
+      children.forEach(child => [
+        render(element, child)
+      ])
+    } else if (children) {
+      render(element, children)
+    }
+
+    keys(restProps).map(propKey => {
+      const propValue = String(get(restProps, propKey) ?? '')
+
+      element.setAttribute(propKey, propValue)
+    })
+
+    rootElement.appendChild(element)
+  } else if (isComponentElement(claryElement.type)) {
+    if (claryElement.type.element) {
+      render(rootElement, claryElement.type.element)
+    }
+  }
 }
 
 const claryDOM = {

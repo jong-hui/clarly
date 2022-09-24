@@ -9,7 +9,7 @@ export type Renderer = (render: Render) => void
 
 export type ClaryElementType = string | ClaryComponent
 export interface ClaryElementOptions {
-  children?: ClaryElement | ClaryElement[]
+  children?: string | ClaryElement | ClaryElement[]
 }
 
 export interface ClaryElementTree {
