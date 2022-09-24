@@ -1,11 +1,10 @@
-import { Renderer } from "../../interfaces";
-import { ClaryElement } from "../claryElement";
+import { ClaryElement, Renderer } from "../../interfaces";
 
 export class ClaryComponent {
   name: string
   renderer: Renderer
   mounted = false
-  tree: ClaryElement | null = null
+  element: ClaryElement | null = null
 
   constructor(name: string, renderer: Renderer) {
     this.name = name
@@ -13,10 +12,11 @@ export class ClaryComponent {
   }
 
   mount() {
-    this.renderer(this.render)
+    this.renderer(this.render.bind(this))
   }
 
   render(tree: ClaryElement) {
-    this.tree = tree
+    console.log(tree)
+    this.element = tree
   }
 }

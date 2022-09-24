@@ -1,4 +1,5 @@
 import { get, keys } from "lodash"
+import { ClaryElement } from "../core/interfaces"
 import { ElementProps } from "./interfaces"
 
 // const isTextNode = (possibleTextNode: unknown): possibleTextNode is Text => {
@@ -31,6 +32,12 @@ import { ElementProps } from "./interfaces"
 //   return textNode
 // }
 
-export default {
-
+const render = (rootElement: HTMLElement, claryElement: ClaryElement) => {
+  console.log(claryElement)
 }
+
+const claryDOM = {
+  render
+}
+
+export default claryDOM

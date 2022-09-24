@@ -1,7 +1,10 @@
+import claryDOM from "../dom"
 import { Clary } from "./classes/clary"
 import { ClaryComponent } from "./classes/claryComponent"
-import { ClaryElement } from "./classes/claryElement"
+import { ClaryComponentElement } from "./classes/claryComponentElement"
+import { ClaryNativeElement } from "./classes/claryNativeElement"
 import { ClaryElementOptions, ClaryElementType, Renderer } from "./interfaces"
+import { isComponentElement, isNativeElement } from "./utils/element"
 
 
 const createClaryComponent = (name: string, renderer: Renderer) => {
@@ -9,7 +12,15 @@ const createClaryComponent = (name: string, renderer: Renderer) => {
 }
 
 const createElement = (type: ClaryElementType, options: ClaryElementOptions) => {
-  return new ClaryElement(type, options)
+  if (isNativeElement(type)) {
+    return new ClaryNativeElement(type, options)
+  }
+
+  if (isComponentElement(type)) {
+    return new ClaryComponentElement(type, options)
+  }
+
+  throw new Error('ㅇㅅㅇ')
 }
 
 // const render = (containerNode: HTMLElement, component: ClaryComponent) => {
@@ -19,7 +30,7 @@ const createElement = (type: ClaryElementType, options: ClaryElementOptions) => 
 const _Clary = {
   createComponent: createClaryComponent,
   createElement: createElement,
-  // render
+  DOM: claryDOM
 }
 
 
